@@ -1,0 +1,51 @@
+{
+  "name": "project-number-testing",
+  "productName": "projectNumberTesting",
+  "author": "Mohsen Khashei",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./core/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "postinstall": "install-app-deps",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
+  },
+  "build": {
+    "files": [
+      "**/*",
+      "!**/*.db",
+      "!**/*.sqlite",
+      "!**/*.sqlite3"
+    ],
+    "appId": "com.numberTesting.app",
+    "productName": "numberTesting",
+    "directories": {
+      "output": "build"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.png",
+      "category": "public.app-category.education"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    }
+  },
+  "dependencies": {
+    "@npmcli/fs": "^3.1.0",
+    "electron-log": "^4.4.8",
+    "node-pre-gyp": "^0.17.0"
+  },
+  "devDependencies": {
+    "electron": "^24.1.2",
+    "electron-builder": "^23.6.0"
+  }
+}
