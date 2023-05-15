@@ -16,7 +16,7 @@ A prime number (or a prime) is a natural number greater than 1 that has no posit
 
 ## For Use
 
-Due to limitation of github, uploaded the executable files [here](https://drive.google.com/drive/folders/1_nc7ai190ZqTmYI3BGll2wxWnGBh5vDK?usp=sharing) you can download the executable files for your OS. <br />
+Due to limitation of github, uploaded the executable files [here](https://drive.google.com/drive/folders/1kTW6b1K81dIhN5jSJBa9X8Opkrw2YDjK?usp=sharing) you can download the executable files for your OS. <br />
 `.dmg` for mac <br />
 `.AppImage` for linux <br />
 `.exe` for windows <br />
