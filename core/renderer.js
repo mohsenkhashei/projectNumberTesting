@@ -6,73 +6,28 @@
  * to expose Node.js functionality from the main process.
  */
 const { ipcRenderer } = require("electron");
-const fs = require("fs");
 
-function validateInput() {
-  var input = document.getElementById("repControlInput").value;
-  var errorElement = document.getElementById("error");
-  var pattern = /^([a-zA-Z]+:[a-zA-Z]+(,[\s]*[a-zA-Z]+:[a-zA-Z]+)*)$/;
-  var isValid = pattern.test(input);
-  if (isValid) {
-    // If input is valid, hide error message (if shown)
-    errorElement.style.display = "none";
-    return true;
-  } else {
-    // If input is invalid, show error message
-    errorElement.style.display = "block";
-    return false;
-  }
-}
+function getInput() {
+  let resultSection = document.getElementById("resultSection");
+  resultSection.innerHTML = " ";
+  const testingNumber = document.getElementById("testingNumber").value;
 
-function getFileText() {
-  const fileInput = document.getElementById("fileInput");
-  let exitSection = document.getElementById("exitSection");
-  exitSection.style.display = "none";
-  let pare = document.getElementById("pare");
-  pare.innerHTML = "";
+  if (testingNumber !== "") {
+    ipcRenderer.send("submitData", testingNumber);
+    ipcRenderer.on("submitDataResponse", (event, processedData) => {
+      // Access the processed data from the main process
+      let word = processedData.isPrime ? "Prime" : "Composite";
+      let contentTemplate = `
+      <div class="row">
+        <div class="col-lg-12">
+          <h6>${testingNumber} is ${word} number and factors are: ${processedData.factors}</h6>
+          <h6>With 1st method number of iteration  is: ${processedData.firstMethod}</h6>
+          <h6>With 2nd method number of iteration  is: ${processedData.secondMethod}</h6>
+        </div>
+      </div>`;
 
-  // Check if a file is selected
-  if (fileInput.files.length > 0) {
-    const file = fileInput.files[0];
-    const filePath = file.path;
-
-    // Read file contents
-    fs.readFile(filePath, "utf-8", (err, data) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-
-      // Send file data to main process via IPC
-      ipcRenderer.send("fileData", data);
-      ipcRenderer.on("fileDataResponse", (event, processedData) => {
-        // Access the processed data from the main process
-
-        let contentTemplate = ``;
-        let exitSection = document.getElementById("exitSection");
-        exitSection.style.display = "block";
-        pareSection.innerHTML += contentTemplate;
-      });
+      resultSection.style.display = "block";
+      resultSection.innerHTML = contentTemplate;
     });
   }
-}
-
-function processData() {
-  if (validateInput()) {
-    const replacementInput = document.getElementById("repControlInput");
-    const pare = document.getElementById("pare");
-    console.log(replacementInput.value);
-    ipcRenderer.send("switchLetters", replacementInput.value);
-    ipcRenderer.on("switchLettersResponse", (event, result) => {
-      let frAnalysis = result.frAnalysis;
-
-      let contentTemplate = ``;
-      pare.innerHTML += contentTemplate;
-    });
-  }
-}
-
-function exit() {
-  let exitSection = document.getElementById("exitSection");
-  exitSection.style.display = "none";
 }

@@ -1,16 +1,42 @@
 const log = require("electron-log");
-const { app } = require("electron");
 
-const path = require("path");
-const fs = require("fs");
+const isPrimeMethod1 = (n) => {
+  if (n <= 1) return false;
 
-const init = async (text) => {
-  log.info(`start init function `);
-
-  try {
-  } catch (err) {
-    log.error(err);
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
   }
+  return true;
 };
 
-module.exports = { init };
+const testingNumbers = (input) => {
+  let n = parseInt(input);
+  let isPrime = false;
+
+  if (isPrimeMethod1(n)) {
+    isPrime = true;
+  }
+
+  let factors = [];
+  let iterations1 = 0;
+  let iterations2 = 0;
+
+  for (let i = 2; i <= n; i++) {
+    iterations1++;
+
+    while (n % i === 0) {
+      factors.push(i);
+      n /= i;
+      iterations2++;
+    }
+  }
+  let unique = Array.from(new Set(factors));
+  return {
+    isPrime: isPrime,
+    factors: unique.join(", "),
+    firstMethod: iterations1,
+    secondMethod: iterations2,
+  };
+};
+
+module.exports = { testingNumbers };
