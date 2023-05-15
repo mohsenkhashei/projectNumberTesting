@@ -31,6 +31,7 @@ const testingNumbers = (input) => {
     }
   }
   let unique = Array.from(new Set(factors));
+  log.info("Done");
   return {
     isPrime: isPrime,
     factors: unique.join(", "),

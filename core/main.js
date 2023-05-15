@@ -1,13 +1,13 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
-const { init, processSwitchLetters } = require("./tools/index");
+const { testingNumbers } = require("./tools/index");
 
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 1000,
+    width: 800,
+    height: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
@@ -33,23 +33,10 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 
-  ipcMain.on("fileData", (event, data) => {
-    init(data)
-      .then((processedData) => {
-        event.sender.send("fileDataResponse", { processedData });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  });
-  ipcMain.on("switchLetters", (event, replacementInput) => {
-    processSwitchLetters(replacementInput)
-      .then((result) => {
-        event.sender.send("switchLettersResponse", result);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  ipcMain.on("submitData", (event, inputData) => {
+    const result = testingNumbers(inputData);
+
+    event.sender.send("submitDataResponse", result);
   });
 });
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -59,6 +46,3 @@ app.whenReady().then(() => {
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") app.quit();
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
