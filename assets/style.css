@@ -1,0 +1,43 @@
+/* basic reset */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+htm {
+  font-size: 100%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+main {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.card {
+  border-radius: 1.2rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.count-result {
+  color: #02888a;
+}
+.customControl {
+  display: inline-block;
+  width: unset;
+}
