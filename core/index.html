@@ -15,74 +15,39 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../assets/style.css" />
-    <title>Frequency Analysis</title>
+    <title>Testing Numbers</title>
   </head>
   <body>
     <main>
       <section class="card info-section">
-      <h3>Frequency Analysis</h3>
-       
-    <p>
-      Frequency analysis is based on the fact that, in any given stretch of written language, certain letters and combinations of letters occur with varying frequencies. In this assignment you should develop an application  helping to crypto analyst  to making frequency analysis on cipher text. Application should be flexible to use any given input cipher text with different languages ( German, French, Russian, Turkish etc.)</p>
+      <p>A prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself. A natural number greater than 1 that is not a prime number is called a composite number.</p>
+   <p>
+      Method I: Should use regular calculation method. It should divide every positive number available between 2 and less than given value itself ( 1 < divider < n)
+
+Method II: Should use algorithm (Algorithm is available in slides) that was mentioned in online class. Check it out slides.
+    </p>
     
-    </p>
-    <p>
-      This assignment is done by Mohammad Mohsen Khashei.<small>2022-2023 Spring Term - Assignment III</small>
-    </p>
-  
+      <small>This assignment is done by Mohammad Mohsen Khashei.2022-2023 Spring Term - Assignment IV</small>
+   
       </section>
-      <section class="card file-section">
-        <div class="row">
-          <div class="col">
-            <div class="alert alert-info" role="info">
-              Insert Your File For Analysis here!
-            </div>
-            <label for="fileInput" class="form-label">Choose Your File:</label>
-            <input type="file" id="fileInput" />
-            <button onclick="getFileText()" class="btn btn-primary">
-              Process
-            </button>
-          </div>
-        </div>
-      </section>
-      <div id="pare"></div>
-     
-      <section
-      class="card change-section mt-3 mb-3 sticky-bottom"
-      id="exitSection" 
-      style="display: none;"
-    >
+    <section
+      class="card change-section mt-3 mb-3 sticky-bottom">
       <div class="row">
         <div class="col-lg-12">
-          <div class="alert alert-warning" role="warning">
-            Take Replace Rules.
-          </div>
-
-          <label for="repControlInput" class="form-label"
-            >Insert New Replacement:</label
-          >
-
           <input
-            type="text"
-            class="form-control"
-            id="repControlInput"
-            placeholder="A:B, f:c, G:t"
+            type="number"
+            class="form-control customControl"
+            id="testingNumber"
+            placeholder="Insert Number"
+            name="testingNumber"
           />
-          
+          <button class="btn btn-primary" onclick="getInput()">Check</button>
         </div>
-        <small>The prefered format: a:b, c:O, I:q</small>
-        <p id="error" style="display:none; color:red;">Input is invalid</p>
-
-        <div class="col-lg-12 mt-3 text-center">
-          <button onclick="processData()" class="btn btn-primary">
-            Process
-          </button>
-          <button class="btn btn-danger" onclick="exit()">Exit</button>
-        </div>
-      </div>
-    </section>
       
-     
+    </section>
+    <section class="card" id="resultSection" style="display: none;">
+      
+    </section>
     </main>
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
