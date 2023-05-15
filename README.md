@@ -27,9 +27,9 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/mohsenkhashei/textFrequencyAnalysis
+git clone https://github.com/mohsenkhashei/projectNumberTesting
 # Go into the repository
-cd textFrequencyAnalysis
+cd projectNumberTesting
 # Install dependencies
 npm install
 # Run the app
