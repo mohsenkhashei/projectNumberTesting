@@ -1,41 +1,81 @@
 {
-  "name": "project-number-testing",
-  "productName": "projectNumberTesting",
-  "author": "Mohsen Khashei",
-  "version": "1.0.0",
-  "description": "this is the tesing number app for getting that number is prime or composite and factors and applying another algorithm for calculating iterations",
-  "main": "./core/main.js",
-  "scripts": {
-    "start": "electron .",
-    "build": "electron-builder",
-    "build:mac": "electron-builder --mac",
-    "build:win": "electron-builder --win",
-    "build:linux": "electron-builder --linux"
-  },
-  "build": {
-    "appId": "com.numberTesting.app",
-    "productName": "numberTesting",
-    "directories": {
-      "output": "build"
-    },
-    "mac": {
-      "target": "dmg",
-      "icon": "assets/icon.png",
-      "category": "public.app-category.education"
-    },
-    "win": {
-      "target": "nsis",
-      "icon": "assets/icon.png"
-    },
-    "linux": {
-      "target": "AppImage",
-      "icon": "assets/icon.png"
-    }
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "electron": "^24.1.2",
-    "electron-builder": "^24.4.0",
-    "electron-log": "^4.4.8"
-  }
+	"name": "project-number-testing",
+	"productName": "projectNumberTesting",
+	"author": "Mohsen Khashei <muhsenkhasheii@gmail.com>",
+	"version": "1.0.0",
+	"description": "this is the tesing number app for getting that number is prime or composite and factors and applying another algorithm for calculating iterations",
+	"main": "./core/main.js",
+	"scripts": {
+		"start": "electron .",
+		"build": "electron-builder",
+		"build:mac": "electron-builder --mac",
+		"build:win": "electron-builder --win",
+		"build:linux": "electron-builder --linux"
+	},
+	"build": {
+		"appId": "com.numberTesting.app",
+		"productName": "numberTesting",
+		"directories": {
+			"output": "build"
+		},
+		"mac": {
+			"target": [
+				{
+					"target": "dmg",
+					"arch": [
+						"x64"
+					]
+				}
+			],
+			"icon": "assets/icon.png",
+			"category": "public.app-category.education"
+		},
+		"win": {
+			"target": [
+				{
+					"target": "nsis",
+					"arch": [
+						"x64"
+					]
+				},
+				{
+					"target": "nsis",
+					"arch": [
+						"ia32"
+					]
+				}
+			],
+			"icon": "assets/icon.png"
+		},
+		"linux": {
+			"target": [
+				{
+					"target": "deb",
+					"arch": [
+						"x64"
+					]
+				},
+				{
+					"target": "AppImage",
+					"arch": [
+						"x64"
+					]
+				}
+			],
+			"icon": "assets/icon.png",
+			"maintainer": "Mohsen",
+			"vendor": "Mohsen",
+			"synopsis": "projectNumberTesting",
+			"description": "projectNumberTesting",
+			"category": "education",
+			"mimeTypes": ""
+		}
+	},
+	"devDependencies": {
+		"electron": "^24.1.2",
+		"electron-builder": "^24.4.0"
+	},
+	"dependencies": {
+		"electron-log": "^4.4.8"
+	}
 }

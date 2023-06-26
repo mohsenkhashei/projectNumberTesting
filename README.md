@@ -8,18 +8,19 @@ A prime number (or a prime) is a natural number greater than 1 that has no posit
 
 ## Files structure
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
-- `preload.js` - A content script that runs before the renderer process loads.
-- `core/tools/index.js` - Is the handler between Electron and NodeJS with core data.
+-   `package.json` - Points to the app's main file and lists its details and dependencies.
+-   `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
+-   `index.html` - A web page to render. This is the app's **renderer process**.
+-   `preload.js` - A content script that runs before the renderer process loads.
+-   `core/tools/index.js` - Is the handler between Electron and NodeJS with core data.
 
 ## For Use
 
 Due to limitation of github, uploaded the executable files [here](https://drive.google.com/drive/folders/1kTW6b1K81dIhN5jSJBa9X8Opkrw2YDjK?usp=sharing) you can download the executable files for your OS. <br />
 `.dmg` for mac <br />
-`.AppImage` for linux <br />
 `.exe` for windows <br />
+`.AppImage` for linux <br />`` ˀ
+`.deb` for linux <br /> ``ˀ
 
 ## For Developing
 
@@ -51,12 +52,12 @@ npm run build:win
 
 Note: If you want to generate other versions for each OS [see this guide](https://www.electron.build)
 
-- Electron
-- NodeJS
-- JAVASCRIPT
-- HTML
-- CSS
+-   Electron
+-   NodeJS
+-   JAVASCRIPT
+-   HTML
+-   CSS
 
-## Authors
+## Author
 
-- [@mohsenkhashei](https://www.github.com/mohsenkhashei)
+-   [@mohsenkhashei](https://www.github.com/mohsenkhashei)
